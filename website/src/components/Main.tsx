@@ -5,6 +5,12 @@ export const LineDiv = styled.div`
     justify-content: center;
     align-items: center;
 `
+export const Line = styled.div`
+    width: 60vw;
+    height: 0.5vh;
+    background-color: #d6d6d6;
+    border-radius: 0.5vh;
+`
 
 export const Area = styled.div`
     display: flex;
@@ -14,11 +20,4 @@ export const Area = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: white;
-`
-
-export const Line = styled.div`
-    width: 60vw;
-    height: 0.5vh;
-    background-color: #d6d6d6;
-    border-radius: 0.5vh;
 `
