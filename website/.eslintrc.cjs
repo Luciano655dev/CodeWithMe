@@ -10,6 +10,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    exclude: [
+      path.join(__dirname, '/node_modules'),
+      // ... other exclusions
+    ],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },

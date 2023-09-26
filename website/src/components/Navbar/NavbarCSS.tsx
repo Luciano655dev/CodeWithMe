@@ -9,7 +9,6 @@ export const MainDiv = styled.nav`
 
     display: flex;
     justify-content: space-between;
-    padding: 5px;
 
     background-color: #161623;
 `

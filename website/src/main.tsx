@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
+  useParams
 } from "react-router-dom";
 import axios from 'axios'
 import './main.css'
@@ -10,7 +11,7 @@ import './main.css'
 import Navbar from './components/Navbar/Navbar.tsx'
 import Home from './pages/Home.tsx'
 import Challenges from './pages/Challenges/Challenges.tsx'
-import ChallengeDetails from './pages/ChallengeDetails.tsx'
+import ChallengeDetails from './pages/ChallengeDetails/ChallengeDetails.tsx'
 
 async function getApiRepos(){
   const repos: any = []
@@ -18,7 +19,6 @@ async function getApiRepos(){
 
   for(let data of rawData.data){
     let repoInfo = await axios.get(`https://api.github.com/repos/Luciano655dev/CodeWithMe/contents/challenges/${data.name}`)
-    console.log(data.name);
 
     let jsonFile = await repoInfo.data.filter((file: any) => file.name=='info.json')
     jsonFile = await axios.get(jsonFile[0].download_url)
@@ -33,6 +33,14 @@ async function getApiRepos(){
   
   return await repos
 }
+
+function ReposFilter(props: any) {
+  const { id } = useParams()
+  const repoData = props.repos.filter((repo: any)=>repo.fileName == id)[0]
+
+  return <ChallengeDetails repoData={repoData}></ChallengeDetails>
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +52,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/challenges/:id',
-    element: <div> <Navbar></Navbar> <ChallengeDetails></ChallengeDetails> </div>
+    element: <div> <Navbar></Navbar> <ReposFilter repos={await getApiRepos()}></ReposFilter> </div>
   }
 ]);
 
