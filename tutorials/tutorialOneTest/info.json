@@ -1,0 +1,10 @@
+[
+    {
+        "username": "@luciano655dev",
+        "title": "Javascript Crash Course",
+        "description": "A full JavaScript course to beginners",
+        "video_url": "https://www.youtube.com/watch?v=hdI2bqOjy3c",
+        "tags": ["Javascript", "crash course", "beginners"],
+        "difficulty": 0
+    }
+]

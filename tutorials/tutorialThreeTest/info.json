@@ -1,0 +1,10 @@
+[
+    {
+        "username": "@luciano655dev",
+        "title": "C++ SFML Advanced Course",
+        "description": "A C++ and SFML advanced course forprofessionals",
+        "video_url": "https://www.youtube.com/watch?v=keRIiXJoQP8&list=PLs6oRBoE2-Q_fX_rzraQekRoL7Kr7s5xi&index=2",
+        "tags": ["C++", "crash course", "advanced"],
+        "difficulty": 10
+    }
+]

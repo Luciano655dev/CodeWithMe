@@ -1,0 +1,10 @@
+[
+    {
+        "username": "@luciano655dev",
+        "title": "Python Studying Course",
+        "description": "A python course for those who are studying",
+        "video_url": "https://www.youtube.com/watch?v=XKHEtdqhLK8",
+        "tags": ["Python", "course", "Studying"],
+        "difficulty": 5
+    }
+]

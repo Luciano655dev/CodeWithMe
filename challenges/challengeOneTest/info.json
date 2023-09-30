@@ -1,0 +1,10 @@
+[
+    {
+        "username": "@luciano655dev",
+        "title": "First Challenge",
+        "description": "First challenge posted here, this is just a test",
+        "tags": ["First", "Programming", "challengeOne"],
+        "video_url": "https://www.youtube.com/watch?v=d1fQr-2b4d8&list=WL&index=39",
+        "difficulty": 0
+    }
+]

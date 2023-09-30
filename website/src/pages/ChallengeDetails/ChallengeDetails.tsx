@@ -8,6 +8,18 @@ import rehypeRaw from "rehype-raw";
 import { Container, BodyCSS, OutputDiv, SubContainer, DataContainer, ReactMarkdownStyled, CodeButtonsContainer } from './ChallengeDetailsCSS'
 
 function App(props: any) {
+  const repoData = props.repoData
+  
+  /* CSS do AceEditor */
+  const [aceEditorCSS, setAceEditorCSS] = useState({
+    boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
+    borderTopLeftRadius: "0.7em",
+    borderTopRightRadius: "0.7em",
+    width: "40vw",
+    height: "60vh"
+  })
+
+  /* Código Setup */
   const [code, setCode] = useState(`
   self.addEventListener('message', function(e) {
     // O código JavaScript a ser executado deve estar aqui.
@@ -26,14 +38,7 @@ function App(props: any) {
   `);
   const [output, setOutput] = useState(''); 
 
-  const [aceEditorCSS, setAceEditorCSS] = useState({
-    boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
-    borderTopLeftRadius: "0.7em",
-    borderTopRightRadius: "0.7em",
-    width: "40vw",
-    height: "60vh"
-  })
-
+  /* Responsividade do AceEditor */
   useEffect(() => {
     window.addEventListener('resize', ()=>{
       if(window.innerWidth<=774){
@@ -44,6 +49,7 @@ function App(props: any) {
     });
   }, []);
 
+  /* Função que executa o código */
   const executeCode = () => {
     // Criar um novo Web Worker
     const worker = new Worker(URL.createObjectURL(new Blob([code])));
@@ -59,6 +65,8 @@ function App(props: any) {
       worker.terminate();
     };
   };
+
+  /* Função que salva o código */
   const SaveFile = () => {
     const blob = new Blob([code], { type: 'text/plain' });
     const blobUrl = URL.createObjectURL(blob);
@@ -67,7 +75,7 @@ function App(props: any) {
     const a = document.createElement('a');
     a.style.display = 'none';
     a.href = blobUrl;
-    a.download = `${props.repoData.fileName}Code.js`;
+    a.download = `${repoData.fileName}Code.js`;
 
     document.body.appendChild(a);
     a.click();
@@ -75,22 +83,28 @@ function App(props: any) {
     URL.revokeObjectURL(blobUrl);
   };
 
+  /* Função que mostra o código-resposta */
+  const RevealAnswer = () => {
+    setCode(repoData.script)
+  }
+
   return (
     <BodyCSS>
       <Container>
         <SubContainer>
           <DataContainer>
-            <h1>{props.repoData.projectName}</h1>
-            <p>{props.repoData.username}</p>
-            <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, omnis ipsa soluta veniam voluptates dolorum beatae aliquid reiciendis, incidunt nam atque excepturi fuga nulla quos fugit! Incidunt animi quisquam blanditiis.</h3>
+            <h1>{repoData.projectName}</h1>
+            <label>{repoData.username}</label>
+            <p>{repoData.desc}</p>
             <div></div>
           </DataContainer>
-          <ReactMarkdownStyled rehypePlugins={[rehypeRaw]}>README HERE</ReactMarkdownStyled>
+          <ReactMarkdownStyled rehypePlugins={[rehypeRaw]}>{repoData.readme}</ReactMarkdownStyled>
         </SubContainer>
 
         <SubContainer>
           <CodeButtonsContainer>
             <button onClick={executeCode}>Run</button>
+            <button onClick={RevealAnswer}>Answer</button>
             <button onClick={SaveFile}>Save</button>
           </CodeButtonsContainer>
           <AceEditor

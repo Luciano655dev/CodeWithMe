@@ -26,6 +26,7 @@ export const SubContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
     button{
         top: 0;
         left: 1vw;
@@ -56,6 +57,7 @@ export const OutputDiv = styled.div`
     @media (max-width: 774px) {
         height: 10vh;
         width: calc(80vw - 4px);
+        margin-bottom: 1em;
     }
 `
 
@@ -74,17 +76,29 @@ export const DataContainer = styled.div`
 
     h1{
         margin: 0;
+        font-size: 3em;
+    }
+    label{
+        margin: 0;
+        padding: 0;
+        font-size: 0.8em;
     }
     p{
-        margin: 0;
-    }
-    h3{
         max-height: 3em;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         text-overflow: ellipsis;
-        &::-webkit-scrollbar{
-            width: 0;
-            height: 0;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
         }
     }
     div{
@@ -105,12 +119,8 @@ export const ReactMarkdownStyled = styled(ReactMarkdown)`
     border-radius: 0.7em;
     margin: 0;
     overflow-y: scroll;
+    overflow-x: hidden;
     text-overflow: ellipsis;
-
-    &::-webkit-scrollbar{
-        width: 5px;
-        border-radius: 1em;
-    }
 
     max-width: 40vw;
     height: 60vh;
@@ -118,5 +128,18 @@ export const ReactMarkdownStyled = styled(ReactMarkdown)`
         max-width: 80vw;
         min-height: 30vh;
         max-height: 60vh;
+    }
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
     }
 `

@@ -27,8 +27,12 @@ async function getApiRepos(){
     let script = await repoInfo.data.filter((file: any) => file.name=='main.js')
     script = await axios.get(script[0].download_url)
     script = script.data
+
+    let readme = await repoInfo.data.filter((file: any) => file.name.toLowerCase()=='readme.md')
+    readme = await axios.get(readme[0].download_url)
+    readme = readme.data
     
-    repos.push({...jsonFile, script: script, fileName: data.name})
+    repos.push({...jsonFile, script, readme, fileName: data.name})
   }
   
   return await repos
