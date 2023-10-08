@@ -1,10 +1,10 @@
 [
     {
         "username": "@luciano655dev",
-        "title": "First Challenge",
-        "description": "First challenge posted here, this is just a test",
-        "tags": ["First", "Programming", "challengeOne"],
+        "title": "Median of Two Sorted Arrays",
+        "description": "In this problem, we are given two sorted arrays, nums1 and nums2. We need to return the median of these two arrays.",
+        "tags": ["median", "arrays", "sort"],
         "video_url": "https://www.youtube.com/watch?v=d1fQr-2b4d8&list=WL&index=39",
-        "difficulty": 0
+        "difficulty": 9
     }
 ]
