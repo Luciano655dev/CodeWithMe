@@ -1,0 +1,9 @@
+[
+    {
+        "username": "@luciano655dev",
+        "title": "Longest Substring Without Repeating Characters",
+        "description": "Given a string s, find the length of the longest substring without repeating characters.",
+        "tags": ["Substring", "Characters", "Longest", "medium"],
+        "difficulty": 5
+    }
+]

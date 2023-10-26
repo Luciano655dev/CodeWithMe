@@ -4,7 +4,6 @@
         "title": "Median of Two Sorted Arrays",
         "description": "In this problem, we are given two sorted arrays, nums1 and nums2. We need to return the median of these two arrays.",
         "tags": ["median", "arrays", "sort"],
-        "video_url": "https://www.youtube.com/watch?v=d1fQr-2b4d8&list=WL&index=39",
-        "difficulty": 9
+        "difficulty": 10
     }
 ]
