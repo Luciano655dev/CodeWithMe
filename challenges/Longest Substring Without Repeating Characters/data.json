@@ -4,8 +4,8 @@
     ],
     "returnType": "number",
     "values": [
-        { "input": "abcabcbb", "outputExpected": 3 },
-        { "input": "bbbbb", "outputExpected": 1 },
-        { "input": "pwwkew", "outputExpected": 3 }
+        { "input": ["abcabcbb"], "outputExpected": 3 },
+        { "input": ["bbbbb"], "outputExpected": 1 },
+        { "input": ["pwwkew"], "outputExpected": 3 }
     ]
 }
